@@ -14,14 +14,19 @@ const elfFunctions={
     }
 }
 const createElf=(name,weapon)=>{
-    return {
-        name,
-        weapon,
-    }
+    const newElf=Object.create(elfFunctions);
+    newElf.name=name;
+    newElf.weapon=weapon;
+    return newElf;
 }
 
 // console.log(elf.attack());
 
 const dan=createElf('Dan','knife');
-dan.attack=elfFunctions.attack;
+//it is very hard to attach like this
+//better is to use Object.create()
+
+//dan.attack=elfFunctions.attack;
 console.log(dan.attack());
+
+
